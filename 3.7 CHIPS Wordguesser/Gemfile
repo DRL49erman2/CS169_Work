@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+ruby '3.3.8'
+gem 'sinatra', '>= 2.0.1'
+
+gem "rackup", "~> 2.3"
+
+gem "puma", "~> 8.0"
+
+group :development do
+  gem 'rerun'
+end
