@@ -2,9 +2,11 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: %i[ show edit update destroy ]
 
   # GET /movies or /movies.json
-  def index
-    @movies = Movie.all
-  end
+def index
+  @all_ratings = Movie.all_ratings
+  @ratings_to_show = params[:ratings] ? params[:ratings].keys : @all_ratings
+  @movies = Movie.with_ratings(@ratings_to_show)
+end
 
   # GET /movies/1 or /movies/1.json
   def show
